@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List Representation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            width: 60%;
+            margin: auto;
+        }
+        ol {
+            margin: 20px 0;
+            padding-left: 40px;
+        }
+        .button-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+        button {
+            margin: 0 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+
+  <h3>Sections</h3>
+  <h3>GCC MMEI</h3>
+    <div class="container">
+        <div class="button-container">
+            <button onclick="window.print()">Print</button>
+            <button onclick="copyContent()">Copy Content</button>
+        </div>
+
+        <ol>
+            <li>GENERAL</li>
+            <li>CIVIL - STATION</li>
+            <li>CIVIL - PIPELINE</li>
+            <li>MECHANICAL - STATION</li>
+            <li>MECHANICAL - PIPELINE</li>
+            <li>ELECTRICAL</li>
+            <li>I&C (Instrumentation and Control)</li>
+        </ol>
+    </div>
+
+    <script>
+        function copyContent() {
+            const el = document.createElement('textarea');
+            el.value = document.querySelector('ol').innerText;
+            document.body.appendChild(el);
+            el.select();
+            document.execCommand('copy');
+            document.body.removeChild(el);
+            alert('Content copied to clipboard');
+        }
+    </script>
+</body>
+</html>
